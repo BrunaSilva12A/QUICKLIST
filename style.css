@@ -151,18 +151,30 @@ main {
           }  
         }
 
+         button {
+           background: none;
+           border: none;
+           display: flex;
+           align-items: center;
+           cursor: pointer;
 
-    button {
-        background: none;
-        border: none;
-        display: flex;
-        align-items: center;
-        cursor: pointer;
-
-        img {
-            width: 1.6rem;
-            opacity: .7;
+           img {
+              width: 1.6rem;
+              opacity: .7;
+           }
         }
     }
-    }
+}
+
+.warning {
+    background: var(--color-danger);
+    color: var(--always-white);
+    padding: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 1.2rem;
+    margin-top: 2.4rem;
+    opacity: 1;
+    transform: translateY(0);
 }
