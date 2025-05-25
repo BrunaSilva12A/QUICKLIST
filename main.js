@@ -14,10 +14,10 @@ function addItem() {
 
     document.querySelector("#item").value = ""
 
-    showItensList()
+     showItemsList()
 }
 
-function  showItensList(){
+function  showItemsList(){
     const sectionList = document.querySelector(".list")
 
     sectionList.innerHTML = ""
@@ -28,14 +28,14 @@ function  showItensList(){
         sectionList.innerHTML += `
          <div class="item">
                 <div>
-                    <input type="checkbox" name="list" id="item=${index}" ${item.checked === true ? "checked" : ""}>
+                    <input type="checkbox" name="list" id="item-${index}" ${item.checked === true ? "checked" : ""}>
                     <div class="custom-checkbox">
                         <img src="./assets/checked.svg" alt="checked">
                     </div>
-                    <label for="item=${index}" onclick="checkitem('${item.name}')">${item.name}</label>
+                    <label for="item-${index}" onclick="checkItem('${item.name}')">${item.name}</label>
                 </div>
 
-                <button onclick="removeItem('$(item.name)')">
+                <button onclick="removeItem('${item.name}')">
                     <img src="./assets/trash-icon.svg" alt="trash icon">
                 </button>
             </div>
@@ -43,12 +43,25 @@ function  showItensList(){
     })
 }
 
-function checkitem(itemName) {
+function checkItem(itemName) {
    const item = items.find((item) => item.name === itemName)
    item.checked = !item.checked
    showItemsList()
 }
 
 function removeItem(itemName){
-    console.log(itemName)
+    const itemIndex = items.findIndex((item) => item.name === itemName)
+    const divWarning = document.querySelector(".warning")
+
+    divWarning.classList.remove("hide-warning")
+
+    setTimeout(() => {
+        divWarning.classList.add("hide-warning")
+    }, 4000)
+
+    if (itemIndex !== -1){
+        items.splice(itemIndex, 1)
+    }
+
+    showItemsList()
 }
