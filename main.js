@@ -2,7 +2,7 @@
 const items = []
 
 function addItem() {
-    const itemName = document.quarySelector("#item").value
+    const itemName = document.querySelector("#item").value
 
     //objeto
     const item ={
@@ -10,7 +10,35 @@ function addItem() {
        checked: false
     }
 
-    items.pash(item)
+    items.push(item)
 
-    document.querySelector("#item").value + ""
+    document.querySelector("#item").value = ""
+
+    showItensList()
+}
+
+function  showItensList(){
+    const sectionList = document.querySelector(".list")
+
+    sectionList.innerHTML = ""
+
+    items.sort((itemA, itemB) => Number(a.checked) - Number(itemB.checked))
+
+    items.map((item, index) => {
+        sectionList.innerHTML += `
+         <div class="item">
+                <div>
+                    <input type="checkbox" name="list" id="item=${index}">
+                    <div class="custom-checkbox">
+                        <img src="./assets/checked.svg" alt="checked">
+                    </div>
+                    <label for="item=${index}">${item.name}</label>
+                </div>
+
+                <button>
+                    <img src="./assets/trash-icon.svg" alt="trash icon">
+                </button>
+            </div>
+         `
+    })
 }
