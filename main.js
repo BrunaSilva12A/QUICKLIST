@@ -35,7 +35,7 @@ function  showItensList(){
                     <label for="item=${index}" onclick="checkitem('${item.name}')">${item.name}</label>
                 </div>
 
-                <button>
+                <button onclick="removeItem('$(item.name)')">
                     <img src="./assets/trash-icon.svg" alt="trash icon">
                 </button>
             </div>
@@ -47,4 +47,8 @@ function checkitem(itemName) {
    const item = items.find((item) => item.name === itemName)
    item.checked = !item.checked
    showItemsList()
+}
+
+function removeItem(itemName){
+    console.log(itemName)
 }
