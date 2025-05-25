@@ -177,7 +177,7 @@ main {
     margin-top: 2.4rem;
     opacity: 1;
     transform: translateY(0);
-    transition: opacity 0.4 ease, transform 0.3 ease;
+    transition: opacity 0.4 ease, transform 0.4 ease;
 
     div{
         display: flex;
@@ -211,11 +211,15 @@ main {
      .add-item {
         display: grid;
         grid-template-columns: repeat(10, 1fr);
-        gap: 1.6;
+        gap: 1.6rem;
 
         input {
             margin-bottom: 0;
-            grid-column: 1 / 0;
+            grid-column: 1 / 8;
+        }
+    
+        button {
+            grid-column: 8 / 11;
         }
      }
 }
