@@ -3,11 +3,10 @@ const items = []
 
 function addItem() {
     const itemName = document.querySelector("#item").value
-
-    if(itemName === ""){
-        alert("Digite um item válido!")
-        return
-    }
+    
+    if("Digite um item válido!")
+    alert("Digite um item válido!")
+    return
 
     //objeto
     const item ={
@@ -34,7 +33,7 @@ function  showItemsList(){
          <div class="item">
                 <div>
                     <input type="checkbox" name="list" id="item-${index}" ${item.checked === true ? "checked" : ""}>
-                    <div class="custom-checkbox" onclick="checkItem('${item.name}')">
+                    <div class="custom-checkbox">
                         <img src="./assets/checked.svg" alt="checked">
                     </div>
                     <label for="item-${index}" onclick="checkItem('${item.name}')">${item.name}</label>
