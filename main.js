@@ -1,12 +1,13 @@
 // araw vetor
-const items = []
+let items = []
 
 function addItem() {
     const itemName = document.querySelector("#item").value
     
-    if("Digite um item válido!")
-    alert("Digite um item válido!")
-    return
+    if(itemName === ""){
+        alert("Digite um item válido!")
+        retun
+    }
 
     //objeto
     const item ={
@@ -33,7 +34,7 @@ function  showItemsList(){
          <div class="item">
                 <div>
                     <input type="checkbox" name="list" id="item-${index}" ${item.checked === true ? "checked" : ""}>
-                    <div class="custom-checkbox">
+                    <div class="custom-checkbox" onclick="checkItem('${item.name}')">
                         <img src="./assets/checked.svg" alt="checked">
                     </div>
                     <label for="item-${index}" onclick="checkItem('${item.name}')">${item.name}</label>
@@ -45,6 +46,8 @@ function  showItemsList(){
             </div>
          `
     })
+    
+    localStorage.setItem("items", JSON.stringify(items))
 }
 
 function checkItem(itemName) {
@@ -69,3 +72,18 @@ function removeItem(itemName){
 
     showItemsList()
 }
+
+function addHideWharningClass (){
+   document.querySelector(".warning").classList.add("hide-warning")
+}
+
+function verifyLocalStrogeItems(){
+    const localStorageItems = localStorage.getItem("items")
+
+    if(localStorageItems){
+        items = JSON.parse(localStorageItems)
+        showItemsList()
+    }
+}
+
+verifyLocalStrogeItems()
