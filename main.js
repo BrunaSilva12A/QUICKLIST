@@ -6,7 +6,7 @@ function addItem() {
     
     if(itemName === ""){
         alert("Digite um item válido!")
-        retun
+        return
     }
 
     //objeto
@@ -73,11 +73,11 @@ function removeItem(itemName){
     showItemsList()
 }
 
-function addHideWharningClass (){
+function addHideWarningClass (){
    document.querySelector(".warning").classList.add("hide-warning")
 }
 
-function verifyLocalStrogeItems(){
+function verifyLocalStrorageItems(){
     const localStorageItems = localStorage.getItem("items")
 
     if(localStorageItems){
@@ -86,4 +86,4 @@ function verifyLocalStrogeItems(){
     }
 }
 
-verifyLocalStrogeItems()
+verifyLocalStrorageItems()
